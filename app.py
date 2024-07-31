@@ -30,5 +30,9 @@ def ussd_callback():
     elif text == '2':
         response = "END This is your phone number " + phone_number
     return response
+
+@app.route('/test', methods=['GET'])
+def test():
+    return "Flask is working!"
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=os.environ.get('PORT'))
+    app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 8000)))
